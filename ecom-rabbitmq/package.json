@@ -1,0 +1,18 @@
+{
+  "name": "ecom-rabbitmq",
+  "version": "1.0.0",
+  "description": "E-commerce microservices with RabbitMQ",
+  "private": true,
+  "workspaces": [
+    "api-gateway",
+    "product-service",
+    "order-service",
+    "delivery-service",
+    "notification-service",
+    "payment-service",
+    "shared"
+  ],
+  "scripts": {
+    "start:dev": "echo \"Add dev start scripts here\""
+  }
+}
