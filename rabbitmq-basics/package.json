@@ -1,0 +1,20 @@
+{
+    "name": "rabbitmq-basics",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start:producer": "ts-node src/producer.ts",
+        "start:consumer": "ts-node src/consumer.ts"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.3"
+    },
+    "devDependencies": {
+        "@types/amqplib": "^0.10.7",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.3.3"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
