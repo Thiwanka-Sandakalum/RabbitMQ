@@ -1,0 +1,33 @@
+{
+    "name": "@rabbitmq-intermediate/shared",
+    "version": "1.0.0",
+    "description": "Shared utilities and types for RabbitMQ microservices",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "clean": "rm -rf dist",
+        "db:migrate": "node dist/database/migrate.js",
+        "db:seed": "node dist/database/seed.js",
+        "db:reset": "node dist/database/reset.js"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.3",
+        "pg": "^8.11.3",
+        "redis": "^4.6.8",
+        "winston": "^3.10.0",
+        "prom-client": "^15.0.0",
+        "uuid": "^9.0.0",
+        "joi": "^17.10.1",
+        "crypto": "^1.0.1",
+        "jsonwebtoken": "^9.0.2"
+    },
+    "devDependencies": {
+        "@types/amqplib": "^0.10.1",
+        "@types/pg": "^8.10.2",
+        "@types/uuid": "^9.0.4",
+        "@types/jsonwebtoken": "^9.0.3",
+        "typescript": "^5.2.2"
+    }
+}

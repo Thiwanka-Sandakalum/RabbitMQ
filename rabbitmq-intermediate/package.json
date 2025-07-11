@@ -1,0 +1,80 @@
+{
+    "name": "rabbitmq-intermediate",
+    "version": "1.0.0",
+    "description": "Advanced RabbitMQ microservices demonstration with TypeScript",
+    "private": true,
+    "workspaces": [
+        "services/*",
+        "shared"
+    ],
+    "scripts": {
+        "build": "npm run build:shared && npm run build:services",
+        "build:shared": "cd shared && npm run build",
+        "build:services": "npm run build --workspaces --if-present",
+        "dev": "concurrently \"npm run dev:*\"",
+        "dev:api-gateway": "cd services/api-gateway && npm run dev",
+        "dev:order-service": "cd services/order-service && npm run dev",
+        "dev:inventory-service": "cd services/inventory-service && npm run dev",
+        "dev:payment-service": "cd services/payment-service && npm run dev",
+        "dev:shipping-service": "cd services/shipping-service && npm run dev",
+        "dev:notification-service": "cd services/notification-service && npm run dev",
+        "start": "npm run start --workspaces --if-present",
+        "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+        "install:all": "npm install && npm install --workspaces",
+        "test": "npm run test --workspaces --if-present",
+        "test:integration": "jest --config=jest.integration.config.js",
+        "lint": "eslint . --ext .ts,.js",
+        "lint:fix": "eslint . --ext .ts,.js --fix",
+        "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+        "docker:build": "docker-compose build",
+        "docker:up": "docker-compose up -d",
+        "docker:down": "docker-compose down",
+        "docker:logs": "docker-compose logs -f",
+        "db:migrate": "cd shared && npm run db:migrate",
+        "db:seed": "cd shared && npm run db:seed",
+        "db:reset": "cd shared && npm run db:reset",
+        "infra:up": "docker-compose up -d rabbitmq postgres redis",
+        "infra:down": "docker-compose down rabbitmq postgres redis",
+        "monitoring:up": "docker-compose up -d prometheus grafana",
+        "health:check": "node scripts/health-check.js"
+    },
+    "devDependencies": {
+        "@types/node": "^20.8.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "concurrently": "^8.2.0",
+        "eslint": "^8.50.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "jest": "^29.7.0",
+        "nodemon": "^3.0.1",
+        "prettier": "^3.0.3",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "axios": "^1.5.0",
+        "dotenv": "^16.3.1"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/rabbitmq-intermediate"
+    },
+    "keywords": [
+        "rabbitmq",
+        "microservices",
+        "typescript",
+        "nodejs",
+        "postgresql",
+        "docker",
+        "message-queue",
+        "event-driven",
+        "saga-pattern"
+    ],
+    "author": "Your Name <your.email@example.com>",
+    "license": "MIT"
+}
